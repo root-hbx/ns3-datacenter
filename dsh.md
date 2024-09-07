@@ -70,7 +70,7 @@ In each group, we have to let CoS-1 flows generated from different hosts towards
 		- Group1: host0 -> host6 | host1 -> host6
 		- Group2: host2 -> host9 | host3 -> host9
 
-**flow details is listed here**
+**Flow Details**
 
 |name|CoS|load|mode|gen_time|flow_size|src & dst|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
