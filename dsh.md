@@ -42,7 +42,7 @@ After running these scripts above, they will generate corresponding folders auto
 
 #### Configuration
 
-![alt text](./readme-image/4h-version2.png)
+![alt text](./readme-image/topo.jpg)
 
 In this experiment, we have 2 groups, each group has 5 hosts, and one more switch.
 
@@ -60,7 +60,7 @@ In each group, we have to let CoS-1 flows generated from different hosts towards
 - **total insurance headroom**: 56,840B \* 32(16)port (DSH), 56840B \* 32(16)port (DSHnoSH), 56840B \* 32(16)port \* 7pg (Normal)
 - **mmu**: DSH / DSHnoSH / SIH
 - **DT alpha**: 1/16
-- **burst size**: 64KB x 2 x 4 (4 groups, each one has 2 bursty flows)
+- **burst size**: 64KB x 2 x 2 (2 groups, each one has 2 bursty flows)
 - **flow intro**: background flow (CoS: 1, load: 0.2, mode: web-search) + bursty flow (CoS: 2-7, total load: 0.2-0.8, each vary from 0.2/6 to 0.8/6, mode: bursty)
 - **flow configuration**: (We use "->" to replace "towards" here)
 	- background flow: 
@@ -69,6 +69,13 @@ In each group, we have to let CoS-1 flows generated from different hosts towards
 	- bursty flow: 
 		- Group1: host0 -> host6 | host1 -> host6
 		- Group2: host2 -> host9 | host3 -> host9
+
+**flow details is listed here**
+
+|name|CoS|load|mode|gen_time|flow_size|src & dst|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|background flow|1|0.2|web-search|start: 3s, end: 5s, poisson distribution (interval follows exponential distribution)|Generate random samples based on the web-search flow distribution values|Group0: host0 -> host4, host1 -> host5; Group1: host2 -> host7, host3 -> host8|
+|bursty flow|2-7|0.2-0.8 (for each flow must be divided by 6 based on this)|bursty|start: 3s, end: 5s, poisson distribution (interval follows exponential distribution)|fixed size, called `burst_size` in code|Group0: host0 -> host6, host1 -> host6; Group1: host2 -> host9, host3 -> host9|
 
 #### Output
 
