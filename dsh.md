@@ -4,7 +4,7 @@
 - Plot Directory: `/home/bxhu/ns3-datacenter/simulator/ns-3.39/examples/DSH/plot`
 - Print Directory: `/home/bxhu/ns3-datacenter/simulator/ns-3.39/examples/DSH/plot`
 
-You can replace `bxhu` and use your `$NAME` here.
+You can replace `bxhu` and use your `$NAME` here :)
 
 #### Script
 
